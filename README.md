@@ -7,7 +7,7 @@
 - TF-IDF (numpy)
 - LSA (sklearn)
 - word2vec (упрощенный вариант через SVD, т.к. в sklearn нет Word2Vec)
-- NLTK: токенизация, стоп-слова, стемминг, лемматизация, POS, NER, n-граммы, частотный анализ, корпуса
+- NLTK: токенизация, стемминг, лемматизация, POS, NER
 
 ## Структура
 ```
@@ -50,22 +50,16 @@ python client/send_corpus.py
 
 Пример для NLTK:
 1) Endpoint: `text_nltk/tokenize`
-2) Text: `Hello, world!`
+2) Text: `FastAPI makes NLP demos easy`
 
 ## API эндпоинты
-- `/` — информация о сервисе
+- `/` - редирект на `/docs`
 - `/tf-idf` — TF-IDF (numpy)
 - `/bag-of-words` — Bag of Words (numpy)
 - `/lsa` — LSA (sklearn)
 - `/word2vec` - word2vec (SVD-приближение на sklearn)
 - `/text_nltk/tokenize`
-- `/text_nltk/sent_tokenize`
-- `/text_nltk/stopwords`
 - `/text_nltk/stem`
 - `/text_nltk/lemmatize`
 - `/text_nltk/pos`
 - `/text_nltk/ner`
-- `/text_nltk/freq`
-- `/text_nltk/ngrams`
-- `/text_nltk/pipeline`
-- `/text_nltk/corpora`

@@ -1,3 +1,4 @@
-﻿Я люблю машинное обучение и обработку текста.
-FastAPI позволяет быстро создавать API.
-NLP помогает извлекать смысл из документов.
+﻿FastAPI makes it easy to build APIs.
+Natural language processing finds meaning in text.
+Machine learning helps classify documents.
+We build a simple NLP microservice.
