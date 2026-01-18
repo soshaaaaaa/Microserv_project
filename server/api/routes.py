@@ -17,8 +17,13 @@ from server.utils.text_utils import read_corpus
 
 router = APIRouter()
 
-DEFAULT_CORPUS = read_corpus("client/corpus.txt")
-DEFAULT_TEXT = "FastAPI makes NLP demos easy"
+DEFAULT_CORPUS = read_corpus()
+DEFAULT_TEXT = (
+    "I was born in the year 1632, in the city of York, of a good family, though not "
+    "of that country; my father being a foreigner of Bremen, who settled first at Hull. "
+    "He got a good estate by merchandise, and leaving off his trade, lived afterwards "
+    "at York, from whence he had married my mother, whose relations were named Robinson."
+)
 
 
 class CorpusRequest(BaseModel):

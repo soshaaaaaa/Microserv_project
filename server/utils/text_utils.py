@@ -1,4 +1,8 @@
-﻿PUNCTUATION = ".,!?;:()[]{}\"'"
+from pathlib import Path
+
+PUNCTUATION = ".,!?;:()[]{}\"'"
+ROOT = Path(__file__).resolve().parents[2]
+CORPUS_PATH = ROOT / "client" / "corpus.txt"
 
 
 def simple_tokenize(text):
@@ -13,6 +17,6 @@ def build_vocabulary(tokenized_docs):
     return vocab
 
 
-def read_corpus(path):
-    with open(path, encoding="utf-8") as file:
+def read_corpus():
+    with CORPUS_PATH.open(encoding="utf-8") as file:
         return [line.strip() for line in file if line.strip()]

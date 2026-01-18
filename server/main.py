@@ -9,8 +9,8 @@ sys.path.insert(0, str(root))
 from server.api.routes import router
 
 app = FastAPI(
-    title="NLP-микросервис",
-    description="Простой сервис для обработки текста и базовых NLP-признаков",
+    title="NLP-микросервис - выполнили: Сошина Арина, Протопопова Дарья, Романова Амелия",
+    description="Простой сервис для обработки текста и базовых NLP-признаков, ссылка на Github - https://github.com/soshaaaaaa/Microserv_project",
     version="1.0.0",
 )
 
@@ -20,3 +20,4 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run("main:app", reload=True)
+    

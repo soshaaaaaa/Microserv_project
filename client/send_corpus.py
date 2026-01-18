@@ -7,23 +7,36 @@ def read_corpus(path):
 
 
 def main():
-    base_url = input("Base URL [http://127.0.0.1:8000]: ").strip() or "http://127.0.0.1:8000"
-    endpoint = input("Endpoint (например tf-idf): ").strip() or "tf-idf"
-    endpoint = endpoint.lstrip("/")
+    base_url = "http://127.0.0.1:8000"
+    corpus = read_corpus("client/corpus.txt")
+    text = (
+        "I was born in the year 1632, in the city of York, of a good family, though not "
+        "of that country; my father being a foreigner of Bremen, who settled first at Hull. "
+        "He got a good estate by merchandise, and leaving off his trade, lived afterwards "
+        "at York, from whence he had married my mother, whose relations were named Robinson."
+    )
 
-    if endpoint.startswith("text_nltk"):
-        if endpoint == "text_nltk/corpora":
-            payload = {}
-        else:
-            text = input("Text: ").strip()
+    endpoints = [
+        "bag-of-words",
+        "tf-idf",
+        "lsa",
+        "word2vec",
+        "text_nltk/tokenize",
+        "text_nltk/stem",
+        "text_nltk/lemmatize",
+        "text_nltk/pos",
+        "text_nltk/ner",
+    ]
+
+    for endpoint in endpoints:
+        if endpoint.startswith("text_nltk"):
             payload = {"text": text}
-    else:
-        file_path = input("File [client/corpus.txt]: ").strip() or "client/corpus.txt"
-        payload = {"texts": read_corpus(file_path)}
+        else:
+            payload = {"texts": corpus}
 
-    response = requests.post(f"{base_url}/{endpoint}", json=payload, timeout=30)
-    print(response.status_code)
-    print(response.text)
+        response = requests.post(f"{base_url}/{endpoint}", json=payload, timeout=30)
+        print(endpoint, response.status_code)
+        print(response.text)
 
 
 main()
